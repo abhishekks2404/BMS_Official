@@ -1,10 +1,16 @@
-import React from 'react';
+import React ,{ useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
 
 import { useStateContext } from '../../contexts/ContextProvider';
 
+// 
+
 const Doughnut = ({ namee,id, data, legendVisiblity, height }) => {
   const { currentMode } = useStateContext();
+
+  
 
   return (
     <AccumulationChartComponent
@@ -12,7 +18,8 @@ const Doughnut = ({ namee,id, data, legendVisiblity, height }) => {
       legendSettings={{ visible: legendVisiblity, background: 'white' }}
       height={height}
       background={currentMode === 'Dark' ? '#33373E' : '#fff'}
-      tooltip={{ enable: true }}
+      tooltip={{ enable: true ,shared: true}}
+      
     >
       <Inject services={[AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]} />
       <AccumulationSeriesCollectionDirective>
@@ -33,7 +40,7 @@ const Doughnut = ({ namee,id, data, legendVisiblity, height }) => {
             name: 'text',
             position: 'Inside',
             font: {
-              fontWeight: '600',
+              fontWeight: '800',
               color: '#fff',
             },
           }}

@@ -14,7 +14,7 @@ const Recent_Updates = () => {
       <Header category="Page" title="Recent Updates" />
       <GridComponent
         dataSource={customersData}
-        enableHover={false}
+        enableHover
         allowPaging
         pageSettings={{ pageCount: 5 }}
         selectionSettings={selectionsettings}
